@@ -5,7 +5,7 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1 flex items-center text-center">
       <li>
-        <button class="btn btn-ghost">ログイン</button>
+        <button class="btn btn-ghost"><%= link_to 'ログイン', login_path %></button>
       </li>
       <li>
         <details class="dropdown">
@@ -14,7 +14,7 @@
             <li><%= link_to "投稿一覧", '#' %></li>
             <li><%= link_to "新規投稿", '#' %></li>
             <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-            <li><%= link_to "ログアウト", '#' %></li>
+            <li><%= link_to "ログアウト", signout_path %></li>
           </ul>
         </details>
       </li>
