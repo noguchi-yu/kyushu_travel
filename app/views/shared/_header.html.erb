@@ -3,22 +3,19 @@
     <%= link_to 'Kyushu Travel', root_path, class: "btn btn-ghost h-auto text-2xl" %>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1 flex items-center text-center">
-      <li>
+    <div class="menu menu-horizontal px-1 flex items-center text-center">
         <button class="btn btn-ghost"><%= link_to 'ログイン', login_path %></button>
-      </li>
-      <li>
+      <div>
         <details class="dropdown">
           <summary class="m-1 btn btn-ghost">メニュー</summary>
           <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li><%= link_to "投稿一覧", '#' %></li>
             <li><%= link_to "新規投稿", '#' %></li>
-            <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-            <li><%= link_to "ログアウト", signout_path %></li>
+            <li><%= link_to "ログアウト", signout_path, data: { turbo_method: :delete } %></li>
           </ul>
         </details>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>
 
