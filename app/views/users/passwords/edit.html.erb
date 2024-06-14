@@ -1,0 +1,36 @@
+<%= devise_error_messages %>
+<section>
+  <div class=" items-center px-5 py-12 lg:px-20">
+    <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-neutral-content rounded-lg md:mt-0">
+      <div class="mt-3 text-left sm:mt-5">
+        <div class="inline-flex items-center w-full">
+          <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Change your password</font></font></h3>
+        </div>
+      </div>
+      <div class="mt-8">
+        <div class="mt-6 space-y-6">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.hidden_field :reset_password_token %>
+            <div class="field">
+              <div class="block text-sm font-medium text-neutral-600 mt-6 mb-4">
+                <%= f.label :password, "新しいパスワード" %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> 文字以上)</em><br />
+                  <% end %>
+              </div>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation, "新しいパスワード（確認用)", class: "block text-sm font-medium text-neutral-600 mt-6" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+            </div>
+
+            <div class="actions mt-6">
+                <%= f.submit "パスワード変更", class: "flex items-center justify-center w-full px-10 py-4 text-neutral-600 font-medium text-center text-neutral-600 btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

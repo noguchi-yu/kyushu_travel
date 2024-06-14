@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Kyushu Travel</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="flex flex-col h-screen">
+    <%= render 'shared/header' %>
+    <%= render 'shared/flash_message' %>
+
+    <main class="flex-grow">
     <%= yield %>
+    </main>
+
+    <footer class="mt-auto">
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
