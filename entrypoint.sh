@@ -6,7 +6,12 @@ rm -f /app/tmp/pids/server.pid
 
 if [ "${RAILS_ENV}" = "production" ]
 then
-    bundle exec rails assets:precompile
+	echo "Production environment detected. Running production-specific tasks..."
+
+  bundle install --without development test
+  bundle exec rails assets:clobber
+  bundle exec rails assets:precompile
+  bundle exec rails db:migrate
 fi
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
