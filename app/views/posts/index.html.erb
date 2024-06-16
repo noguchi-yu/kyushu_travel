@@ -7,6 +7,7 @@
       <th>Adress</th>
       <th>Body</th>
       <th>User_id</th>
+      <th></th>
     </tr>
     <% @posts.each do |post| %>
     <tr>
@@ -15,6 +16,9 @@
       <td><%= post.address %></td>
       <td><%= post.body %></td>
       <td><%= post.user.id %></td>
+      <% if current_user.own_post?(post) %>
+        <td><%= link_to "編集", edit_post_path(post) %></td>
+      <% end %>
     </tr>
     <% end %>
   </table>
