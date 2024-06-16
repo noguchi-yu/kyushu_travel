@@ -19,6 +19,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def update
+    @post = current_user.posts.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = '投稿が更新されました'
+      redirect_to post_path(@post)
+    else
+      flash.now[:danger] = '投稿を更新できませんでした'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def post_params
