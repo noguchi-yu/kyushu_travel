@@ -1,0 +1,49 @@
+<div class="min-h-screen">
+  <div class="flex justify-center my-10">
+    <div class="card w-6/12 bg-base-100 shadow-xl text-neutral-600 border border-gray-300">
+      <div class="justify-left p-10">
+        <div>
+          <%= link_to "＜ 戻る", posts_path %>
+        </div>
+      </div>
+      <figure>
+        <%= image_tag 'no_image.png' %>
+      </figure>
+      <div class="card-body">
+        <div class="px-1 sm:px-28">
+          <div class="flex items-start justify-between">
+            <p class="text-3xl font-bold"><%= @post.title %></p>
+            <% if current_user.own_post?(@post) %>
+              <div class="flex justify-end">
+                <%= link_to "編集", edit_post_path(@post), class: "btn mr-2 text-xs text-neutral-600" %>
+                <%= button_to "削除", post_path(@post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' }, class: "btn text-xs text-neutral-600" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="mt-9">
+            <p class="font-bold">所在地</p>
+            <p class="mt-2"><%= @post.address %></p>
+          </div>
+          <% if @post.body.present? %>
+            <div class="mt-8">
+              <p class="font-bold">スポットの説明、おすすめポイント</p>
+              <p class="mt-2"><%= @post.body %></p>
+            </div>
+          <% end %>
+          <div class="mt-10 flex justify-between items-center">
+            <div class="flex items-center">
+              <div class="avatar">
+                <div class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <%= image_tag "default.png" %>
+                </div>
+              </div>
+              <div class="ml-5">
+                <%= @post.user.name %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
