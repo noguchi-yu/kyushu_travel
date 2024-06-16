@@ -9,9 +9,8 @@ class Post < ApplicationRecord
 
   # 北部九州のスポットかのチェック
   def check_address
-    northern_kyushu_addresses = ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県"]
-    unless northern_kyushu_addresses.include?(self.address)
-      errors.add(:base, "は北部九州の住所を入力してください")
+    unless self.address.match?(/\A(?:福岡県|佐賀県|長崎県|熊本県|大分県)/)
+      errors.add(:base, "住所は 福岡県|佐賀県|長崎県|熊本県|大分県 から始まるものを入力してください")
     end
   end
 end
