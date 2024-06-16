@@ -9,6 +9,7 @@
       <th>User_id</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
     <% @posts.each do |post| %>
     <tr>
@@ -17,6 +18,7 @@
       <td><%= post.address %></td>
       <td><%= post.body %></td>
       <td><%= post.user.id %></td>
+      <td><%= link_to "詳細", post_path(post) %></td>
       <% if current_user.own_post?(post) %>
         <td><%= link_to "編集", edit_post_path(post) %></td>
         <td><%= link_to "削除", post_path(post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' } %></td>
