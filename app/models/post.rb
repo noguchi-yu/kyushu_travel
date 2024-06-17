@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 255 }
-  validates :body, presence: true, length: { maximum: 300 }
+  validates :body, length: { maximum: 300 }
   validates :address, presence: true, uniqueness: true
   validates :images, length: { maximum: 3, message: '写真は3枚までしかアップロードできません' }
 

@@ -3,11 +3,64 @@
     <div class="card w-6/12 bg-base-100 shadow-xl text-neutral-600 border border-gray-300">
       <div class="justify-left p-10">
         <div>
-          <%= link_to "＜ 戻る", posts_path %>
+          <%= link_to posts_path do %>
+            <div class="flex items-center">
+              <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+              </svg>
+              <span class="text-neutral-600 pl-2">戻る</span>
+            </div>
+          <% end %>
         </div>
       </div>
       <figure>
-        <%= image_tag 'no_image.png' %>
+        <% if @post.images.present? %>
+          <div class="carousel">
+            <div id="slide1" class="carousel-item relative w-full justify-center items-center">
+              <%= image_tag @post.images.first.to_s, width: 600 %>
+              <% if @post.images.second.present? %>
+                <div class="absolute flex justify-end transform -translate-y-1/2 right-2.5 top-1/2">
+                  <a href="#slide2" class="btn btn-circle glass btn-sm">
+                    <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+                    </svg>
+                  </a>
+                </div>
+              <% end %>
+            </div>
+            <% if @post.images.second.present? %>
+              <div id="slide2" class="carousel-item relative w-full justify-center items-center">
+                <%= image_tag @post.images.second.to_s, width: 600 %>
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-2.5 right-2.5 top-1/2">
+                  <a href="#slide1" class="btn btn-circle glass btn-sm">
+                    <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+                    </svg>
+                  </a>
+                  <% if @post.images.third.present? %>
+                    <a href="#slide3" class="btn btn-circle glass btn-sm">
+                      <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+                      </svg>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @post.images.third.present? %>
+              <div id="slide3" class="carousel-item relative w-full justify-center items-center">
+                <%= image_tag @post.images.third.to_s, width: 600 %>
+                <div class="absolute flex justify-start transform -translate-y-1/2 left-2.5 top-1/2">
+                  <a href="#slide2" class="btn btn-circle glass btn-sm">
+                    <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </figure>
       <div class="card-body">
         <div class="px-1 sm:px-28">

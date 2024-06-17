@@ -26,6 +26,14 @@
             <%= f.text_area :body, placeholder: "スポットの説明、おすすめポイント", class: "input input-bordered w-full textarea", autocomplete: "off" %>
             <span id="charCount" class="text-xs text-right mt-1">300文字まで</span>
           </div>
+          <div class="flex flex-col mt-5">
+            <div class="flex flex-col">
+              <%= f.label :images, "写真" %>
+              <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered file-input w-full text-neutral-600 font-normal" %>
+              <%= f.hidden_field :images_cache %>
+              <span class="text-xs text-right mt-1">3枚まで（ファイル形式：jpeg、jpg、png、heic）</span>
+            </div>
+          </div>
           <div class="flex justify-center mt-7">
             <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 text-neutral-600" %>
           </div>
