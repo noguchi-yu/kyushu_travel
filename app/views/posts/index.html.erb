@@ -7,6 +7,7 @@
       <th>Adress</th>
       <th>Body</th>
       <th>User_id</th>
+      <th>images</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +19,11 @@
       <td><%= post.address %></td>
       <td><%= post.body %></td>
       <td><%= post.user.id %></td>
+      <td>
+        <%= post.images.each do |image| %>
+          <%= image.to_s %>
+        <% end %>
+      </td>
       <td><%= link_to "詳細", post_path(post) %></td>
       <% if current_user.own_post?(post) %>
         <td><%= link_to "編集", edit_post_path(post) %></td>
