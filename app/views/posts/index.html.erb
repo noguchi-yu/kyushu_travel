@@ -1,0 +1,37 @@
+<h1>Posts</h1>
+<% if @posts.present? %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Adress</th>
+      <th>Body</th>
+      <th>User_id</th>
+      <th>images</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.title %></td>
+      <td><%= post.address %></td>
+      <td><%= post.body %></td>
+      <td><%= post.user.id %></td>
+      <td>
+        <%= post.images.each do |image| %>
+          <%= image.to_s %>
+        <% end %>
+      </td>
+      <td><%= link_to "詳細", post_path(post) %></td>
+      <% if current_user.own_post?(post) %>
+        <td><%= link_to "編集", edit_post_path(post) %></td>
+        <td><%= link_to "削除", post_path(post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' } %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>投稿がありません</p>
+<% end %>

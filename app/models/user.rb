@@ -7,4 +7,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, uniqueness: true
+
+  has_many :posts
+
+  # 自分の投稿か確認
+  def own_post?(post)
+    post.user_id == id
+  end
 end
