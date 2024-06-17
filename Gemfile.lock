@@ -323,6 +323,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   letter_opener_web
+  mini_magick
   pg (~> 1.1)
   pry-byebug
   pry-nav

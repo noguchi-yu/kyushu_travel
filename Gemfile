@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 3.0'
+gem 'mini_magick'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
