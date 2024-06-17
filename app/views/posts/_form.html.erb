@@ -33,6 +33,13 @@
               <%= f.hidden_field :images_cache %>
               <span class="text-xs text-right mt-1">3枚まで（ファイル形式：jpeg、jpg、png、heic）</span>
             </div>
+            <div id="preview-post-images" class="flex flex-wrap justify-center">
+              <% if post.images.present? %>
+                <% post.images.each do |image| %>
+                  <%= image_tag image.to_s, class: "w-1/3 h-auto object-contain m-2" %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
           <div class="flex justify-center mt-7">
             <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 text-neutral-600" %>
