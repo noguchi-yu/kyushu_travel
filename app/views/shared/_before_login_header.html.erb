@@ -1,0 +1,18 @@
+<div class="navbar bg-base-100 z-10 text-neutral-600" style="position: fixed; top: 0; left: 0; right: 0;">
+  <div class="flex-1">
+    <%= link_to 'Kyushu Travel', root_path, class: "btn btn-ghost h-auto text-2xl" %>
+  </div>
+  <div class="flex-none">
+    <div class="menu menu-horizontal px-1 flex items-center text-center">
+        <button class="btn btn-ghost"><%= link_to 'ログイン', login_path %></button>
+        <details class="dropdown">
+          <summary class="m-1 btn btn-ghost">メニュー</summary>
+          <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li><%= link_to "投稿一覧", posts_path %></li>
+            <li><%= link_to "新規投稿", new_post_path %></li>
+          </ul>
+        </details>
+    </div>
+  </div>
+</div>
+

@@ -25,7 +25,7 @@
         <% end %>
       </td>
       <td><%= link_to "詳細", post_path(post) %></td>
-      <% if current_user.own_post?(post) %>
+      <% if current_user && current_user.own_post?(post) %>
         <td><%= link_to "編集", edit_post_path(post) %></td>
         <td><%= link_to "削除", post_path(post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' } %></td>
       <% end %>
