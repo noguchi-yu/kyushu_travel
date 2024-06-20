@@ -1,3 +1,6 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&libraries=places&callback=initAutocomplete" async defer>
+</script>
+
 <div class="min-h-screen">
   <div class="flex justify-center my-14">
     <div class="card w-[800px]  bg-neutral-content text-neutral-600">
@@ -13,17 +16,17 @@
           <%= render 'shared/error_messages', object: f.object %>
           <div class="flex flex-col mt-5">
             <%= f.label :title, "タイトル" %>
-            <%= f.text_field :title, placeholder: "スポット名や市町村名", class: "input input-bordered w-full", autocomplete: "off" %>
+            <%= f.text_field :title, id: "Title", placeholder: "スポット名や市町村名", class: "input input-bordered w-full", autocomplete: "off" %>
             <span class="text-xs text-right mt-1">必須</span>
           </div>
           <div class="flex flex-col mt-5">
             <%= f.label :address, "住所" %>
-            <%= f.text_field :address, placeholder: "県名から住所入力", class: "input input-bordered w-full", autocomplete: "off" %>
+            <%= f.text_field :address, id: "Address", placeholder: "県名から住所入力", class: "input input-bordered w-full", autocomplete: "off" %>
             <span class="text-xs text-right mt-1">必須（同じ住所は投稿できません）</span>
           </div>
           <div class="flex flex-col mt-5">
             <%= f.label :body, "コメント" %>
-            <%= f.text_area :body, placeholder: "スポットの説明、おすすめポイント", class: "input input-bordered w-full textarea", autocomplete: "off" %>
+            <%= f.text_area :body, id: "Body", placeholder: "スポットの説明、おすすめポイント", class: "input input-bordered w-full textarea", autocomplete: "off" %>
             <span id="charCount" class="text-xs text-right mt-1">300文字まで</span>
           </div>
           <div class="flex flex-col mt-5">
@@ -49,3 +52,33 @@
     </div>
   </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let inputTitle = document.getElementById('Title');
+  let inputAddress = document.getElementById('Address');
+
+  // 日本の施設に設定
+  let options = {
+    types: ['establishment'],
+    componentRestrictions: { country: 'JP' },
+  };
+
+  // オートコンプリート適用
+  let autocompleteTitle = new google.maps.places.Autocomplete(inputTitle, options);
+  let autocompleteAddress = new google.maps.places.Autocomplete(inputAddress, options);
+
+  // タイトルのオートコンプリートが選択されたとき
+  autocompleteTitle.addListener('place_changed', function() {
+    let place = autocompleteTitle.getPlace();
+    inputTitle.value = place.name;
+    inputAddress.value = place.formatted_address;
+  });
+
+  // 住所のオートコンプリートが選択されたとき
+  autocompleteAddress.addListener('place_changed', function() {
+    let place = autocompleteAddress.getPlace();
+    inputTitle.value = place.name;
+    inputAddress.value = place.formatted_address;
+  });
+});
+</script>
