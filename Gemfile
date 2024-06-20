@@ -53,6 +53,10 @@ gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
 gem "aws-sdk-s3", require: false
 gem 'fog-aws'
+gem 'faker'
+
+# map
+gem "geocoder"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
