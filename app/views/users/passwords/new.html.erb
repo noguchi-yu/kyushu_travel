@@ -8,7 +8,7 @@
       </div>
       <div class="mt-8">
         <div class="mt-6 space-y-6">
-          <%= form_with model: @user, url: user_password_path, local: true do |f| %>
+          <%= form_with model: @user, url: user_password_path, data: { turbo: false }, local: true do |f| %>
             <% unless devise_error_messages.empty? %>
               <div class="alert alert-warning bg-neutral-content text-red-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">

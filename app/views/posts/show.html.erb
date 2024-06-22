@@ -1,17 +1,15 @@
 <div class="min-h-screen">
   <div class="flex justify-center my-10">
-    <div class="card w-5/12 bg-base-100 shadow-xl text-neutral-600 border border-gray-300">
-      <div class="justify-left p-10">
-        <div>
-          <%= link_to posts_path do %>
-            <div class="flex items-center">
-              <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
-              </svg>
-              <span class="text-neutral-600 pl-2">戻る</span>
-            </div>
-          <% end %>
-        </div>
+    <div class="card w-6/12 bg-base-100 shadow-xl text-neutral-600 border border-gray-300">
+      <div class="justify-left py-10 px-5">
+        <%= link_to posts_path do %>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+            </svg>
+            <span class="text-neutral-600 pl-2">戻る</span>
+          </div>
+        <% end %>
       </div>
       <figure>
         <% if @post.images.present? %>
@@ -63,19 +61,18 @@
         <% end %>
       </figure>
       <div class="card-body">
-        <div class="px-5">
+        <div class="px-6">
           <div class="flex items-center">
-            <p class="text-3xl font-bold"><%= @post.title %></p>
+            <div class="mr-3">
+              <p class="text-3xl font-bold"><%= @post.title %></p>
+            </div>
             <% if current_user.own_post?(@post) %>
-
-                  <%= link_to(edit_post_path(@post), class: "tooltip", "data-tip" => "編集") do %>
-                    <i class="fa fa-pencil p-2 hover:text-accent" aria-hidden="true"></i>
-                  <% end %>
-
-                  <%= link_to(post_path(@post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' }, class: "tooltip", "data-tip" => "削除") do %>
-                    <i class="fa fa-trash p-2 hover:text-accent" aria-hidden="true"></i>
-                  <% end %>
-
+              <%= link_to(edit_post_path(@post), class: "tooltip", "data-tip" => "編集") do %>
+                <i class="fa fa-pencil mx-2 hover:text-primary" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to(post_path(@post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' }, class: "tooltip", "data-tip" => "削除") do %>
+                <i class="fa fa-trash mx-2 hover:text-primary" aria-hidden="true"></i>
+              <% end %>
             <% end %>
           </div>
           <div class="mt-9">
