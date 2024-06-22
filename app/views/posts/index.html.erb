@@ -1,9 +1,23 @@
-<div class="px-10 py-5">
-  <div class="flex items-center">
-    <%= image_tag 'red.png', class: "w-6 h-6" %>を押しておすすめスポットを見てみよう
+<div class="flex justify-center items-center text-neutral-600">
+  <div class="px-10 py-5">
+    <div class="flex items-center">
+      <%= image_tag 'red.png', class: "w-6 h-6" %>を押しておすすめスポットを見てみよう！
+    </div>
   </div>
 </div>
+
+<!-- Map表示 -->
 <div id="map" class="w-auto h-[400px] sm:h-[800px]"></div>
+
+<!-- モーダル表示 -->
+<dialog id="post_modal" class="modal">
+  <div class="modal-box w-[500px]">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <div class="post_show mt-4"></div>
+  </div>
+</dialog>
 
 <script>
   // 地図を初期化する関数
@@ -31,6 +45,55 @@
         title: '<%= j post.title %>'
       });
     <% end %>
+
+    // マーカーを追加（Postの情報からマーカーを追加する）
+    <% @posts.each do |post| %>
+      (() => {
+        let marker = new google.maps.Marker({
+          position: {lat: <%= post.latitude %>, lng: <%= post.longitude %>}, // 緯度経度
+          map: map,
+          title: '<%= j post.title %>'
+        });
+
+        // マーカーをクリックすると投稿詳細に遷移
+        marker.addListener('click', function() {
+          const modalContent = `
+            <div>
+              <p class="text-neutral-600 text-xl font-bold mb-3 mx-2"><%= post.title %></p>
+
+              <% if post.images.present? %>
+                <div class="flex justify-center">
+                  <div class="mb-5 mx-2">
+                    <% first_image = post.images.first %>
+                    <%= image_tag first_image.to_s, class: "w-[300px]" %>
+                  </div>
+                </div>
+              <% end %>
+
+              <% if post.body.present? %>
+                <div class="mb-5 mx-2 text-neutral-600">
+                  <p><%= post.body %></p>
+                </div>
+              <% end %>
+
+              <div class="flex justify-end mx-2">
+                <%= link_to "詳細へ", post_path(post), class: "btn btn-success text-neutral-600" %>
+              </div>
+            </div>
+          `;
+
+          document.querySelector('.post_show').innerHTML = modalContent;
+          post_modal.showModal();
+        });
+      })();
+    <% end %>
   }
+  // モーダルを閉じる
+  document.addEventListener('click', function(event) {
+    const modal = document.getElementById('post_modal');
+    if (event.target === modal) {
+      modal.close();
+    }
+  });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap"></script>
