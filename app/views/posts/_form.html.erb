@@ -1,6 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&libraries=places&callback=initAutocomplete" async defer>
-</script>
-
 <div class="min-h-screen">
   <div class="flex justify-center my-14">
     <div class="card w-[800px]  bg-neutral-content text-neutral-600">
@@ -53,7 +50,7 @@
   </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("turbo:load", function () {
   let inputTitle = document.getElementById('Title');
   let inputAddress = document.getElementById('Address');
 
@@ -81,4 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     inputAddress.value = place.formatted_address;
   });
 });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&libraries=places&callback=initAutocomplete" async defer>
 </script>
