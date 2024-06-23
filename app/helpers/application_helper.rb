@@ -6,7 +6,7 @@ module ApplicationHelper
     # エラーメッセージ用のHTMLを生成
     messages = resource.errors.full_messages.each do |msg|
       html += <<-EOF
-        <div role="alert" class="bg-neutral-content text-red-500 flex flex-col items-start">
+        <div role="alert" class="bg-base-200 text-red-500 flex flex-col items-start">
           <span>#{msg}</span>
         </div>
       EOF

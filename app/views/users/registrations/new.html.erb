@@ -1,16 +1,16 @@
 <section>
   <div class=" items-center px-5 py-12 lg:px-20">
-    <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-neutral-content rounded-lg md:mt-0">
+    <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-base-200 rounded-lg md:mt-0">
       <div class="mt-3 text-left sm:mt-5">
         <div class="inline-flex items-center w-full">
-          <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SignUp</font></font></h3>
+          <h3 class="text-lg font-bold font-lato l eading-6 lg:text-5xl">SignUp</h3>
         </div>
       </div>
       <div class="mt-8">
         <div class="mt-4 space-y-2">
           <%= form_with model: resource, url: registration_path(resource_name), local: true do |f| %>
             <% unless devise_error_messages.empty? %>
-              <div class="alert alert-warning bg-neutral-content text-red-500">
+              <div class="alert alert-warning bg-base-200 text-red-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
@@ -20,31 +20,31 @@
               </div>
             <% end %>
             <div class="field">
-              <%= f.label :name, class: "block text-sm font-medium text-neutral-600" %><br />
-              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Your Name", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+              <%= f.label :name, class: "block text-sm" %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Your Name", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
             </div>
             <div class="field">
-              <%= f.label :email, class: "block text-sm font-medium text-neutral-600 mt-6" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+              <%= f.label :email, class: "block text-sm mt-6" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
             </div>
             <div class="field">
-              <div class="block text-sm font-medium text-neutral-600 mt-6 mb-4">
+              <div class="block text-sm mt-6 mb-4">
                 <%= f.label :password, "パスワード" %>
                 <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> 文字以上)</em>
+                (<%= @minimum_password_length %> 文字以上)
                 <% end %><br />
               </div>
-              <%= f.password_field :password, autocomplete: "new-password", placeholder: "Your Password", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "Your Password", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
             </div>
             <div class="field">
-              <%= f.label :password_confirmation, "パスワード（確認用)", class: "block text-sm font-medium text-neutral-600 mt-6" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+              <%= f.label :password_confirmation, "パスワード（確認用)", class: "block text-sm mt-6" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
             </div>
             <div class="mt-6">
-              <%= f.submit "登録", class: "flex items-center justify-center w-full px-10 py-4 text-neutral-600 font-medium text-center text-neutral-600 btn btn-success" %>
+              <%= f.submit "登録", class: "flex items-center justify-center w-full px-10 py-4 font-medium text-center btn btn-success" %>
             </div>
-            <div class="text-sm mt-6">
-              <%= link_to "すでに登録済みの方はこちら", login_path, class: "font-medium text-neutral-600 hover:text-neutral-400" %>
+            <div class="mt-6 flex justify-end">
+              <%= link_to "すでにご登録済みの方はこちら", login_path, class: "hover:text-neutral-400 text-xs" %>
             </div>
           <% end %>
           <!--
@@ -53,7 +53,7 @@
                 <div class="w-full border-t border-gray-300"></div>
             </div>
             <div class="relative flex justify-center text-sm">
-                <span class="px-2 text-neutral-600 bg-white"> Or continue with </span>
+                <span class="px-2 bg-white"> Or continue with </span>
             </div>
           </div>
           <div>
