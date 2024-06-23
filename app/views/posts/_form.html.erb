@@ -41,6 +41,18 @@
               <% end %>
             </div>
           </div>
+          <div class="flex flex-col mt-5">
+            <p>タグ</p>
+            <div class="flex flex-wrap">
+              <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, { checked: @post.tag_ids }, { multiple: true }) do |tag| %>
+                <label class="px-4 my-2 w-1/2 sm:w-1/3">
+                  <%= tag.check_box(class: 'hidden', data: { behavior: 'tag-checkbox' }) %>
+                  <button type="button" class="btn btn-sm w-full bg-base border-neutral-400 <%= 'bg-base-100 text-bg-warning-content' if @post.tag_ids.include?(tag.value.to_i) %>" data-behavior="tag-button"><%= tag.text %></button>
+                </label>
+              <% end %>
+            </div>
+            <span class="text-xs text-right mt-1">タグを1つ以上選択してください</span>
+          </div>
           <div class="flex justify-center mt-7">
             <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 font-medium" %>
           </div>
@@ -78,6 +90,25 @@ document.addEventListener("turbo:load", function () {
     inputAddress.value = place.formatted_address;
   });
 });
+// タグの選択をチェックボックスではなく色を変えて表すためのコード
+  document.addEventListener('turbo:load', function() {
+    const buttons = document.querySelectorAll('[data-behavior="tag-button"]');
+
+    buttons.forEach(function(button) {
+      // PC用
+      button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const checkbox = this.parentNode.querySelector('[data-behavior="tag-checkbox"]');
+        checkbox.checked = !checkbox.checked;
+
+        if (checkbox.checked) {
+          this.classList.add('bg-base-100', 'text-bg-warning-content');
+        } else {
+          this.classList.remove('bg-base-100', 'text-bg-warning-content');
+        }
+      });
+    });
+  });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&libraries=places&callback=initAutocomplete" async defer>
 </script>
