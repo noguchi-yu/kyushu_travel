@@ -3,45 +3,47 @@
 </div>
 <div class="mx-auto w-11/12 text-center max-w-2xl">
 	<section>
-		<div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-24">
+		<div class="relative items-center w-full px-5 py-12 mx-auto md:px-10 lg:px-10 max-w-7xl lg:py-24">
 			<div class="flex w-full mx-auto text-left">
 				<div class="relative inline-flex items-center mx-auto align-middle">
 					<div class="text-center">
 						<h1 class="max-w-5xl text-2xl text-emerald-700 font-bold font-lato leading-none tracking-tighter md:text-5xl lg:text-6xl lg:max-w-7xl">
 							Discover the new charms of Kyushu! <br class="hidden lg:block">
 						</h1>
-						<p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-neutral-600">Kyushu Travel Mapは北部九州の新たな魅力を発見いただけるサービスです</p>
+						<p class="max-w-7xl mx-auto mt-8 text-base leading-relaxed text-neutral-600">
+            Kyushu Travelは北部九州のおすすめスポットを閲覧、共有できるサービスです。<br>
+            </p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </div>
-<div class="flex flex-col px-4 mb-5">
+<div class="flex flex-col px-4 mb-6">
   <div class="mx-auto space-y-36">
-		<div class="flex flex-wrap items-center justify-center flex-row-reverse">
-      <div class="w-full w-[350px] my-4 ml-7 mr-7">
+		<div class="flex items-center justify-center">
+      <div class="w-[350px] my-4">
         <p class="font-bold">おすすめスポットを見に行こう</p>
-        <p class="mt-5 text-neutral-600">気になるスポットが見つかるはず！</p>
+        <p class="mt-5 text-neutral-600">九州のおすすめスポットを探して<br>まだ知らない九州の新たな魅力を発見しよう!</p>
         <div class="mt-5">
           <%= link_to "見にいく！", posts_path, class: "btn btn-success" %>
         </div>
       </div>
-      <div class="card w-11/12 w-96 h-auto bg-base-100 shadow-xl shadow-xl">
+      <div class="card w-11/12 w-96 h-auto bg-base-100 shadow-xl">
         <figure><%= image_tag "no_image.png", class: "rounded-2xl mt-5 md:mt-0" %></figure>
       </div>
     </div>
-    <div class="flex flex-wrap items-center justify-center">
-      <div class="w-full w-[350px] my-4">
-        <p class="font-bold">九州のよかとこおすすめしよう</p>
-        <p class="mt-5 text-neutral-600">行きつけの場所や、行ってよかった場所を教えあおう！</p>
-        <p class="text-xs">◎ログインが必要です</p>
+    <div class="flex items-center justify-center">
+      <div class="w-[350px] my-4">
+        <p class="font-bold">九州のおすすめスポットを投稿しよう</p>
+        <p class="mt-5 text-neutral-600">行きつけの場所や、行ってよかった場所を<br>教えあおう！</p>
+        <p class="text-xs pt-2">◎ログインが必要です</p>
         <div class="mt-5">
-          <%= link_to "おすすめする！", new_post_path, class: "btn btn-success" %>
+          <%= link_to "おすすめする！", new_post_path, class: "btn btn-success", data: { turbo: false } %>
         </div>
       </div>
       <div class="card w-11/12 w-96 h-auto bg-base-100 shadow-xl shadow-xl">
-        <figure><%= image_tag "no_image.png", class: "rounded-2xl mt-5 md:mt-0" %></figure>
+        <figure><%= image_tag "top2.webp", class: "rounded-2xl mt-5 md:mt-0" %></figure>
       </div>
     </div>
   </div>
