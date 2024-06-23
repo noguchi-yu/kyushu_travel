@@ -1,6 +1,6 @@
 <div class="min-h-screen">
   <div class="flex justify-center my-14">
-    <div class="card w-[800px]  bg-neutral-content text-neutral-600">
+    <div class="card w-[800px]  bg-base-200">
       <div class="card-body p-10">
         <%= form_with(model: post, local: true, data: { turbo: false }) do |f| %>
           <div class="mb-8 flex justify-center">
@@ -29,7 +29,7 @@
           <div class="flex flex-col mt-5">
             <div class="flex flex-col">
               <%= f.label :images, "写真" %>
-              <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered file-input w-full text-neutral-600 font-normal" %>
+              <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered file-input w-full font-normal" %>
               <%= f.hidden_field :images_cache %>
               <span class="text-xs text-right mt-1">3枚まで（ファイル形式：jpeg、jpg、png、heic）</span>
             </div>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="flex justify-center mt-7">
-            <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 text-neutral-600" %>
+            <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 font-medium" %>
           </div>
         <% end %>
       </div>

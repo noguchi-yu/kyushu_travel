@@ -1,24 +1,24 @@
 <section>
   <div class=" items-center px-5 py-12 lg:px-20">
-    <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-neutral-content rounded-lg md:mt-0">
+    <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-base-200 rounded-lg md:mt-0">
       <div class="mt-3 text-left sm:mt-5">
         <div class="inline-flex items-center w-full">
-          <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></h3>
+          <h3 class="text-lg font-bold font-lato l eading-6 lg:text-5xl">Login</h3>
         </div>
       </div>
       <div class="mt-8">
         <div class="mt-6 space-y-6">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
-              <%= f.label :email, class: "block text-sm font-medium text-neutral-600" %><br />
+              <%= f.label :email, class: "block text-sm" %><br />
               <div class="mt-1">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
               </div>
             </div>
             <div class="field space-y-1">
-              <%= f.label :password, "パスワード", class: "block text-sm font-medium text-neutral-600 mt-6" %><br />
+              <%= f.label :password, "パスワード", class: "block text-sm mt-6" %><br />
               <div class="mt-1">
-                <%= f.password_field :password, autocomplete: "current-password", placeholder: "Your Password", class: "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "Your Password", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
               </div>
             </div>
 
@@ -26,21 +26,23 @@
               <% if devise_mapping.rememberable? %>
                 <div class="field flex items-center">
                   <%= f.check_box :remember_me, class: "w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500" %>
-                  <%= f.label :remember_me, class: "block ml-2 text-sm text-neutral-600" %>
+                  <%= f.label :remember_me, class: "block ml-2 text-sm" %>
                 </div>
               <% end %>
             </div>
 
             <div class="mt-6">
-              <%= f.submit "ログイン", class: "flex items-center justify-center w-full px-10 py-4 text-neutral-600 font-medium text-center text-neutral-600 btn btn-success" %>
+              <%= f.submit "ログイン", class: "flex items-center justify-center w-full px-10 py-4 text-center btn btn-success font-medium" %>
             </div>
-            <div class="flex items-center justify-between mt-6">
+            <div class="mt-6">
+            <!--
               <div class="text-sm">
-                  <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), class: "font-medium text-neutral-600 hover:text-neutral-400" %>
+                  <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), class: "hover:text-neutral-400" %>
               </div>
               <p class="text-sm">/</p>
-              <div class="text-sm">
-                  <%= link_to "新規登録はこちら", new_user_registration_path, class: "font-medium text-neutral-600 hover:text-neutral-400" %>
+            -->
+              <div class="text-sm flex justify-end">
+                  <%= link_to "新規登録はこちら", new_user_registration_path, class: "hover:text-neutral-400" %>
               </div>
             </div>
           <% end %>
@@ -50,11 +52,11 @@
                 <div class="w-full border-t border-gray-300"></div>
             </div>
             <div class="relative flex justify-center text-sm">
-                <span class="px-2 text-neutral-600 bg-white"> Or continue with </span>
+                <span class="px-2 bg-white"> Or continue with </span>
             </div>
           </div>
           <div>
-            <button type="submit" class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            <button type="submit" class="w-full items-center block px-10 py-3.5 text-base text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <div class="flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48">
                   <defs>

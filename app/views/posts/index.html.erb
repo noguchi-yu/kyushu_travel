@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center text-neutral-600">
+<div class="flex justify-center items-center">
   <div class="px-10 py-5">
     <div class="flex items-center">
       <%= image_tag 'red.png', class: "w-6 h-6" %>を押しておすすめスポットを見てみよう！
@@ -59,7 +59,7 @@
         marker.addListener('click', function() {
           const modalContent = `
             <div>
-              <p class="text-neutral-600 text-xl font-bold mb-3 mx-2"><%= post.title %></p>
+              <p class="text-xl font-bold mb-3 mx-2"><%= post.title %></p>
 
               <% if post.images.present? %>
                 <div class="flex justify-center">
@@ -71,13 +71,13 @@
               <% end %>
 
               <% if post.body.present? %>
-                <div class="mb-5 mx-2 text-neutral-600">
+                <div class="mb-5 mx-2">
                   <p><%= post.body %></p>
                 </div>
               <% end %>
 
               <div class="flex justify-end mx-2">
-                <%= link_to "詳細へ", post_path(post), class: "btn btn-success text-neutral-600" %>
+                <%= link_to "詳細へ", post_path(post), class: "btn btn-success font-medium" %>
               </div>
             </div>
           `;
