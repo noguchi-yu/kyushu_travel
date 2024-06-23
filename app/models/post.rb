@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :tags
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 300 }
@@ -8,6 +9,7 @@ class Post < ApplicationRecord
 
   validate :check_address
   validate :validate_address
+  validate :must_have_tags
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -28,5 +30,10 @@ class Post < ApplicationRecord
     return if geocoded&.first&.coordinates.present?
 
     errors.add(:address, '住所が存在しません')
+  end
+
+  # タグが一つ以上選択されているかのチェック
+  def must_have_tags
+    errors.add(:base, 'タグを1つ以上選択してください') unless tags.present?
   end
 end
