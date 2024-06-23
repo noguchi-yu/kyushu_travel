@@ -49,6 +49,8 @@
     // マーカーを追加（Postの情報からマーカーを追加する）
     <% @posts.each do |post| %>
       (() => {
+        let firstTag = '<%= post.tags.first.name %>';
+
         let marker = new google.maps.Marker({
           position: {lat: <%= post.latitude %>, lng: <%= post.longitude %>}, // 緯度経度
           map: map,
@@ -60,6 +62,12 @@
           const modalContent = `
             <div>
               <p class="text-xl font-bold mb-3 mx-2"><%= post.title %></p>
+
+              <div class="mb-5">
+                <% post.tags.each do |tag| %>
+                  <span class="badge badge-success gap-2"><%= tag.name %></span>
+                <% end %>
+              </div>
 
               <% if post.images.present? %>
                 <div class="flex justify-center">
