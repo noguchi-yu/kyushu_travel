@@ -4,14 +4,26 @@
       Kyushu Travel
     <% end %>
   </div>
-  <div class="flex-none">
+  <div class="flex-none mr-2">
     <div class="menu menu-horizontal px-1 flex items-center text-center">
-      <details class="dropdown">
-        <summary class="m-1 btn btn-ghost">メニュー</summary>
+      <details class="dropdown dropdown-end">
+        <summary class="m-1 btn btn-ghost hover:bg-base-200"><i class="fa fa-bars fa-2x text-neutral-800" aria-hidden="true"></i></summary>
         <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-          <li><%= link_to "投稿一覧", posts_path, data: { turbo: false } %></li>
-          <li><%= link_to "新規投稿", new_post_path, data: { turbo: false } %></li>
-          <li><%= link_to "ログアウト", signout_path, data: { turbo_method: :delete } %></li>
+          <li>
+            <%= link_to posts_path, data: { turbo: false }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                <p><i class="fa fa-search" aria-hidden="true"></i>&nbsp;<%= t('header.post_index') %></p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_post_path, data: { turbo: false }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                <p><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<%= t('header.create_post') %></p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to signout_path, data: { turbo_method: :delete }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                <p><i class="fa fa-sign-out" aria-hidden="true">&nbsp;</i><%= t('header.logout') %></p>
+            <% end %>
+          </li>
         </ul>
       </details>
     </div>

@@ -29,7 +29,7 @@ class Post < ApplicationRecord
     geocoded = Geocoder.search(address)
     return if geocoded&.first&.coordinates.present?
 
-    errors.add(:address, '住所が存在しません')
+    errors.add(:address, 'が存在しません')
   end
 
   # タグが一つ以上選択されているかのチェック

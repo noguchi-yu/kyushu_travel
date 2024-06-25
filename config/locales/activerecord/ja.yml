@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: スポット
+    attributes:
+      user:
+        email: メールアドレス
+        last_name: 姓
+        first_name: 名
+        password: パスワード
+        password_confirmation: パスワード確認
+        avatar: アバター
+      post:
+        title: スポット名
+        body: コメント
+        address: 住所
+        web_site: サイト
+        images: 写真

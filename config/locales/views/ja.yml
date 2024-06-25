@@ -1,0 +1,44 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  defaults:
+    create: 作成
+    post: 投稿
+    edit: 編集
+    delete: 削除
+    delete_confirm: 削除しますか
+    unspecified: 指定なし
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      delete: "%{item}を削除しました"
+      require_login: ログインしてください
+  header:
+    login: ログイン
+    logout: ログアウト
+    post: スポット
+    post_index: スポット一覧
+    create_post: 新規投稿
+    bookmark_index: お気に入り
+    profile: プロフィール
+  posts:
+    new:
+      title: 新規投稿
+      error:
+        blank_title: "スポット名を入力してください"
+        blank_address: "住所を入力してください"
+        too_long_title: "スポット名は255文字以内で入力してください"
+        too_long_body: "コメントは300文字以内で入力してください"
+    index:
+      title: スポット一覧
+    edit:
+        title: スポット編集
+
