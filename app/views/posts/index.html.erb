@@ -63,7 +63,7 @@
             <div>
               <p class="text-xl font-bold mb-3 mx-2"><%= post.title %></p>
 
-              <div class="mb-5">
+              <div class="mb-5 mx-2">
                 <% post.tags.each do |tag| %>
                   <span class="badge badge-success gap-2"><%= tag.name %></span>
                 <% end %>
@@ -73,7 +73,7 @@
                 <div class="flex justify-center">
                   <div class="mb-5 mx-2">
                     <% first_image = post.images.first %>
-                    <%= image_tag first_image.to_s, class: "w-[300px]" %>
+                    <%= image_tag first_image.to_s, class: "w-[400px]" %>
                   </div>
                 </div>
               <% end %>
