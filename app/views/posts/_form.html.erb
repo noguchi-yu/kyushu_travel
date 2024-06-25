@@ -22,6 +22,10 @@
             <span class="text-xs text-right mt-1">必須（同じ住所は投稿できません）</span>
           </div>
           <div class="flex flex-col mt-5">
+            <%= f.label :web_site, "サイト" %>
+            <%= f.text_field :web_site, id: "Web", class: "input input-bordered w-full", autocomplete: "off" %>
+          </div>
+          <div class="flex flex-col mt-5">
             <%= f.label :body, "コメント" %>
             <%= f.text_area :body, id: "Body", placeholder: "スポットの説明、おすすめポイント", class: "input input-bordered w-full textarea", autocomplete: "off" %>
             <span id="charCount" class="text-xs text-right mt-1">300文字まで</span>
@@ -65,6 +69,7 @@
 document.addEventListener("turbo:load", function () {
   let inputTitle = document.getElementById('Title');
   let inputAddress = document.getElementById('Address');
+  let inputWeb = document.getElementById('Web');
 
   // 日本の施設に設定
   let options = {
@@ -81,6 +86,7 @@ document.addEventListener("turbo:load", function () {
     let place = autocompleteTitle.getPlace();
     inputTitle.value = place.name;
     inputAddress.value = place.formatted_address;
+    inputWeb.value = place.website;
   });
 
   // 住所のオートコンプリートが選択されたとき
@@ -88,6 +94,7 @@ document.addEventListener("turbo:load", function () {
     let place = autocompleteAddress.getPlace();
     inputTitle.value = place.name;
     inputAddress.value = place.formatted_address;
+    inputWeb.value = place.website;
   });
 });
 // タグの選択をチェックボックスではなく色を変えて表すためのコード
