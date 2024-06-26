@@ -48,6 +48,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'

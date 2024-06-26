@@ -1,28 +1,38 @@
 <section>
   <div class=" items-center px-5 py-12 lg:px-20">
     <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-base-200 rounded-lg md:mt-0">
-      <div class="mt-3 text-left sm:mt-5">
+      <div class="mt-3 text-left">
         <div class="inline-flex items-center w-full">
           <h3 class="text-lg font-bold font-lato l eading-6 lg:text-5xl">Login</h3>
         </div>
       </div>
       <div class="mt-8">
-        <div class="mt-6 space-y-6">
+        <div class="mt-6 space-y-2">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <% unless devise_error_messages.empty? %>
+              <div class="alert alert-warning bg-base-200 text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <div class="flex flex-col items-start">
+                <%= devise_error_messages %>
+                </div>
+              </div>
+            <% end %>
             <div class="field">
-              <%= f.label :email, class: "block text-sm" %><br />
+              <%= f.label :email, class: "block text-sm pb-2" %>
               <div class="mt-1">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
               </div>
             </div>
             <div class="field space-y-1">
-              <%= f.label :password, "パスワード", class: "block text-sm mt-6" %><br />
+              <%= f.label :password, class: "block text-sm mt-6 pb-2" %>
               <div class="mt-1">
                 <%= f.password_field :password, autocomplete: "current-password", placeholder: "Your Password", class: "block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" %>
               </div>
             </div>
 
-            <div class="flex items-center justify-between mt-6">
+            <div class="flex items-center justify-between mt-4">
               <% if devise_mapping.rememberable? %>
                 <div class="field flex items-center">
                   <%= f.check_box :remember_me, class: "w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500" %>
@@ -31,16 +41,14 @@
               <% end %>
             </div>
 
-            <div class="mt-6">
+            <div class="mt-4">
               <%= f.submit "ログイン", class: "flex items-center justify-center w-full px-10 py-4 text-center btn btn-success font-medium" %>
             </div>
-            <div class="mt-6">
-            <!--
+            <div class="flex items-center justify-between mt-6">
               <div class="text-sm">
                   <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), class: "hover:text-neutral-400" %>
               </div>
               <p class="text-sm">/</p>
-            -->
               <div class="text-sm flex justify-end">
                   <%= link_to "新規登録はこちら", new_user_registration_path, class: "hover:text-neutral-400" %>
               </div>
