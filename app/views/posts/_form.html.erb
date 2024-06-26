@@ -12,27 +12,27 @@
           </div>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="flex flex-col mt-5">
-            <%= f.label :title, "タイトル" %>
+            <%= f.label :title %>
             <%= f.text_field :title, id: "Title", placeholder: "スポット名や市町村名", class: "input input-bordered w-full", autocomplete: "off" %>
             <span class="text-xs text-right mt-1">必須</span>
           </div>
           <div class="flex flex-col mt-5">
-            <%= f.label :address, "住所" %>
+            <%= f.label :address %>
             <%= f.text_field :address, id: "Address", placeholder: "県名から住所入力", class: "input input-bordered w-full", autocomplete: "off" %>
             <span class="text-xs text-right mt-1">必須（同じ住所は投稿できません）</span>
           </div>
           <div class="flex flex-col mt-5">
-            <%= f.label :web_site, "サイト" %>
+            <%= f.label :web_site %>
             <%= f.text_field :web_site, id: "Web", class: "input input-bordered w-full", autocomplete: "off" %>
           </div>
           <div class="flex flex-col mt-5">
-            <%= f.label :body, "コメント" %>
+            <%= f.label :body %>
             <%= f.text_area :body, id: "Body", placeholder: "スポットの説明、おすすめポイント", class: "input input-bordered w-full textarea", autocomplete: "off" %>
             <span id="charCount" class="text-xs text-right mt-1">300文字まで</span>
           </div>
           <div class="flex flex-col mt-5">
             <div class="flex flex-col">
-              <%= f.label :images, "写真" %>
+              <%= f.label :images %>
               <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered file-input w-full font-normal" %>
               <%= f.hidden_field :images_cache %>
               <span class="text-xs text-right mt-1">3枚まで（ファイル形式：jpeg、jpg、png、heic）</span>
@@ -58,7 +58,7 @@
             <span class="text-xs text-right mt-1">タグを1つ以上選択してください</span>
           </div>
           <div class="flex justify-center mt-7">
-            <%= f.submit (f.object.new_record? ? "投稿する" : "更新する"), class: "btn btn-success px-10 py-4 font-medium" %>
+            <%= f.submit class: "btn btn-success px-10 py-2 font-medium" %>
           </div>
         <% end %>
       </div>

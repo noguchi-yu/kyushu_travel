@@ -1,17 +1,25 @@
 <div class="navbar bg-base-100 z-10" style="position: fixed; top: 0; left: 0; right: 0;">
   <div class="flex-1">
-    <%= link_to root_path, class: "border border-emerald-700 text-emerald-700 hover:bg-base-200 hover:text-emerald-700 text-2xl font-lato font-light py-2 px-4 rounded" do %>
+    <%= link_to root_path, class: "border border-emerald-700 text-emerald-700 hover:bg-base-200 text-emerald-700 text-2xl font-lato font-light py-2 px-4 rounded" do %>
       Kyushu Travel
     <% end %>
   </div>
-  <div class="flex-none">
+  <div class="flex-none mr-2">
     <div class="menu menu-horizontal px-1 flex items-center text-center">
-        <button class="btn btn-ghost"><%= link_to 'ログイン', login_path %></button>
-        <details class="dropdown">
-          <summary class="m-1 btn btn-ghost">メニュー</summary>
+        <button class="btn btn-ghost hover:bg-base-200 text-neutral-800"><%= link_to t('header.login'), login_path %></button>
+        <details class="dropdown dropdown-end">
+          <summary class="m-1 btn btn-ghost hover:bg-base-200"><i class="fa fa-bars fa-2x text-neutral-800" aria-hidden="true"></i></summary>
           <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-            <li><%= link_to "投稿一覧", posts_path, data: { turbo: false } %></li>
-            <li><%= link_to "新規投稿", new_post_path, data: { turbo: false } %></li>
+            <li>
+            <%= link_to posts_path, data: { turbo: false }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                <p><i class="fa fa-search" aria-hidden="true"></i>&nbsp;<%= t('header.post_index') %></p>
+            <% end %>
+            </li>
+            <li>
+              <%= link_to new_post_path, data: { turbo: false }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                  <p><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<%= t('header.create_post') %></p>
+              <% end %>
+            </li>
           </ul>
         </details>
     </div>

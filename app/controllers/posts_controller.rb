@@ -13,10 +13,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      flash[:success] = '投稿が作成されました'
-      redirect_to posts_path
+      redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
-      flash.now[:danger] = '投稿を作成できませんでした'
+      flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,10 +29,9 @@ class PostsController < ApplicationController
     params[:post].delete(:images) if params[:post][:images].all?(&:blank?)
 
     if @post.update(post_params)
-      flash[:success] = '投稿が更新されました'
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), success: t('defaults.flash_message.updated', item: Post.model_name.human)
     else
-      flash.now[:danger] = '投稿を更新できませんでした'
+      flash.now[:danger] = t('defaults.flash_message.not_updated', item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
@@ -42,7 +40,7 @@ class PostsController < ApplicationController
     post = current_user.posts.find(params[:id])
     post.destroy!
     flash[:success] = '投稿が削除されました'
-    redirect_to posts_path, status: :see_other
+    redirect_to posts_path, success: t('defaults.flash_message.delete', item: Post.model_name.human), status: :see_other
   end
 
   def show
