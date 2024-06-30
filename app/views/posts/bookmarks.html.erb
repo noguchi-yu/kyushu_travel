@@ -1,0 +1,14 @@
+<div class="flex flex-col p-5">
+  <div class="m-5 flex justify-center">
+    <div class="text-xl font-bold">ブックマーク</div>
+  </div>
+  <div class="mx-auto">
+    <% if @bookmark_posts.present? %>
+      <% @bookmark_posts.each do |post| %>
+          <%= render 'posts/post', post: post %>
+      <% end %>
+    <% else %>
+      <p class="p-10">ブックマーク中のスポットがありません</p>
+    <% end %>
+  </div>
+</div>

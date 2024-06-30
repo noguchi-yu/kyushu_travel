@@ -1,5 +1,5 @@
 <div class="flex justify-center items-center">
-  <div class="px-10 py-5">
+  <div class="px-10 py-4">
     <div class="flex items-center">
       <%= image_tag 'red.png', class: "w-6 h-6" %>を押しておすすめスポットを見てみよう！
     </div>
@@ -60,10 +60,11 @@
         // マーカーをクリックすると投稿詳細に遷移
         marker.addListener('click', function() {
           const modalContent = `
-            <div>
-              <p class="text-xl font-bold mb-3 mx-2"><%= post.title %></p>
+              <div>
+              <p class="text-xl font-bold mb-1 mx-2"><%= post.title %></p>
+              <p class="md:mx-3 mb-2 text-[10px] text-neutral-500"><%= extract_address(post.address) %></p>
 
-              <div class="mb-5 mx-2">
+              <div class="mb-2 mx-2">
                 <% post.tags.each do |tag| %>
                   <span class="badge badge-success gap-2"><%= tag.name %></span>
                 <% end %>

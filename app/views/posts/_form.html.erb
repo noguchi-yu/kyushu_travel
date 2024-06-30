@@ -1,7 +1,14 @@
 <div class="min-h-screen">
-  <div class="flex justify-center my-14">
+  <div class="flex justify-center my-4">
     <div class="card w-[800px]  bg-base-200">
-      <div class="card-body p-10">
+      <div class="justify-left px-8 pt-5">
+        <%= link_to :back do %>
+          <div class="flex items-center btn btn-circle bg-base-300 btn-sm">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-body py-5 px-10">
         <%= form_with(model: post, local: true, data: { turbo: false }) do |f| %>
           <div class="mb-8 flex justify-center">
             <% if f.object.new_record? %>

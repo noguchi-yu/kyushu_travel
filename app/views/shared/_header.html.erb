@@ -20,6 +20,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to bookmarks_posts_path, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
+                <p><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;<%= t('header.bookmark_index') %></p>
+            <% end %>
+          </li>
+          <li>
             <%= link_to signout_path, data: { turbo_method: :delete }, class: "flex items-center text-sm text-neutral-800 capitalize transition-colors duration-300 transform hover:bg-base-200" do %>
                 <p><i class="fa fa-sign-out" aria-hidden="true">&nbsp;</i><%= t('header.logout') %></p>
             <% end %>
