@@ -27,7 +27,7 @@ ja:
     post: スポット
     post_index: スポット一覧
     create_post: 新規投稿
-    bookmark_index: お気に入り
+    bookmark_index: ブックマーク
     profile: プロフィール
   posts:
     new:
@@ -40,5 +40,13 @@ ja:
     index:
       title: スポット一覧
     edit:
-        title: スポット編集
+      title: スポット編集
+    bookmarks:
+      title: ブックマーク
+      no_result: ブックマーク中のスポットがありません。
+  bookmarks:
+    create:
+      success: ブックマークしました
+    destroy:
+      success: ブックマークから削除しました
 

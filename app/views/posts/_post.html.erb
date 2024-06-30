@@ -1,0 +1,40 @@
+<div class="card w-full lg:w-[820px] bg-base-100 shadow-xl mb-5 flex flex-wrap hover:shadow-lg">
+  <div class="card-body w-full">
+    <div class="flex flex-wrap justify-center md:justify-start">
+      <div class="w-44 md:mr-10">
+        <% if post.images.present? %>
+          <% first_image = post.images.first %>
+          <%= image_tag first_image.to_s, class: "aspect-[3/2] object-cover" %>
+        <% end %>
+      </div>
+      <div class="flex flex-col w-auto">
+        <div class="flex items-center mt-5">
+          <h4 class="card-title">
+            <%= link_to post.title, post_path(post) %>
+          </h4>
+          <div class="ml-5">
+            <%= render 'bookmark_buttons', { post: post } %>
+          </div>
+        </div>
+        <p class="m-2 text-xs text-neutral-500">
+          <%= extract_address(post.address) %>
+        </p>
+        <div class="mb-5">
+          <% post.tags.each do |tag| %>
+            <span class="badge badge-success gap-2"><%= tag.name %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-end">
+      <% if current_user.own_post?(post) %>
+        <%= link_to(edit_post_path(post), class: "tooltip", "data-tip" => "編集", data: { turbo: false }) do %>
+          <i class="fa fa-pencil mx-3 hover:text-primary" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to(post_path(post), data: { turbo_method: :delete, turbo_confirm: '削除しますか?' }, class: "tooltip", "data-tip" => "削除") do %>
+          <i class="fa fa-trash mx-3 hover:text-primary" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
