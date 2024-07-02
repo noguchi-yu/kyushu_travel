@@ -47,17 +47,16 @@
               <%= link_to "すでにご登録済みの方はこちら", login_path, class: "hover:text-neutral-400 text-xs" %>
             </div>
           <% end %>
-          <!--
-          <div class="relative my-4">
+          <div class="relative my-4 pt-4">
             <div class="absolute inset-0 flex items-center">
                 <div class="w-full border-t border-gray-300"></div>
             </div>
-            <div class="relative flex justify-center text-sm">
-                <span class="px-2 bg-white"> Or continue with </span>
+            <div class="relative flex justify-center text-xs">
+                <span class="px-2 bg-base-200"> またはGoogleではじめる </span>
             </div>
           </div>
           <div>
-            <button type="submit" class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "w-full items-center block px-10 py-3.5 text-sm font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white bg-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
               <div class="flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48">
                   <defs>
@@ -71,11 +70,10 @@
                   <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
                   <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
                 </svg>
-                <span class="ml-4"> Log in with Google</span>
+                <span class="ml-4"> Googleでログイン</span>
               </div>
-            </button>
+            <% end %>
           </div>
-          -->
         </div>
       </div>
     </div>
