@@ -28,7 +28,7 @@ ja:
     post_index: スポット一覧
     create_post: 新規投稿
     bookmark_index: ブックマーク
-    profile: プロフィール
+    mypage: マイページ
   posts:
     new:
       title: 新規投稿
