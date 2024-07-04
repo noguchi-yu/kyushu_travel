@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     delete 'signout', to: 'devise/sessions#destroy'
   end
 
+  get "/mypage" => "users#mypage"
+
   # 開発環境用letter_opener
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 

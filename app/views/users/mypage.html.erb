@@ -1,0 +1,20 @@
+<h1><%= @user.name %>のユーザーページ</h1>
+<h2>ユーザー情報</h2>
+<div class="avatar">
+  <div class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <%= image_tag @user.avatar.url %>
+  </div>
+</div>
+<p>ニックネーム: <%= @user.name %></p>
+<%= link_to 'ユーザー情報を編集する', edit_user_registration_path %>
+
+<h2>投稿一覧</h2>
+<div class="mx-auto">
+  <% if @users_posts.present? %>
+    <% @users_posts.each do |post| %>
+        <%= render 'posts/post', post: post %>
+    <% end %>
+  <% else %>
+    <p class="p-10">投稿したスポットがありません</p>
+  <% end %>
+</div>
