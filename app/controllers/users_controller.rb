@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
-    @users_posts = @user.posts
+    @users_posts = @user.posts.order(created_at: :desc).page(params[:page])
   end
 end

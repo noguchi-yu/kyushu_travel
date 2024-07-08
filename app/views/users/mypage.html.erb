@@ -21,6 +21,9 @@
             <%= render 'posts/post', post: post %>
         <% end %>
       </div>
+      <div class="flex justify-center">
+        <%= paginate @users_posts %>
+      </div>
       <% else %>
         <p class="flex justify-center">まだ投稿したスポットがありません。</p>
         <div class="flex justify-center items-center gap-4">
