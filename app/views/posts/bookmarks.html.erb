@@ -7,6 +7,9 @@
       <% @bookmark_posts.each do |post| %>
           <%= render 'posts/post', post: post %>
       <% end %>
+      <div class="flex justify-center">
+        <%= paginate @bookmark_posts %>
+      </div>
     <% else %>
       <p class="p-10">ブックマーク中のスポットがありません</p>
     <% end %>

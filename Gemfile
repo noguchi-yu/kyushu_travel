@@ -58,6 +58,7 @@ gem "aws-sdk-s3", require: false
 gem 'fog-aws'
 gem 'faker'
 gem 'rails-i18n', '~> 7.0.0'
+gem 'kaminari'
 
 # map
 gem "geocoder"

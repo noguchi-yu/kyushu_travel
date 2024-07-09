@@ -49,4 +49,12 @@ ja:
       success: ブックマークしました
     destroy:
       success: ブックマークから削除しました
+  views:
+    pagination:
+      previous: '＜'
+      next: '＞'
+      first: '≪'
+      last: '≫'
+      truncate: '...'
+
 
