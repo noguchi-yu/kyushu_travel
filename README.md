@@ -30,22 +30,20 @@
 - 北部九州エリアの観光スポットがマップ上に一覧表示されることで、ユーザーの旅行計画の効率化や視野の拡大につながる
 
 ## ■ 機能候補、機能の実装方針予定
-### MVP
 - 会員登録・ログイン(Devise)
 - マイページ
 - 新規スポット投稿（Google Places APIを使用した住所・スポット名のオートコンプリート）
 - スポット編集
 - スポット削除
 - タグ機能
-- 検索（フリーワード、地域、タグ）
 - 投稿一覧（GoogleマップAPIを使用しマップ上にアイコンで表示）
 - 投稿詳細
+- スポットのお気に入り機能
 
 ### その後の機能
-- スポットのお気に入り機能
+- 検索（フリーワード、地域、タグ）
 - マップ内２点間の移動時間計算
 - おすすめスポット表示
-- 画像加工（MiniMagick)
 - Cloud Vision API による不適切な画像のフィルタリング
 - SNSシェア機能(X)
 - テスト機能(Rspec)
@@ -72,4 +70,4 @@
 [画面遷移図](https://www.figma.com/design/V5DvAbx6bySyZd302KRJkF/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=QTrkTkoX5mHV7A3b-1)
 
 ## ■ER図
-[![Image from Gyazo](https://i.gyazo.com/68862f831bd928780c562f2d02e7741c.png)](https://gyazo.com/68862f831bd928780c562f2d02e7741c)
+[![Image from Gyazo](https://i.gyazo.com/b04c6addb03589b0d8c9ad7238c272a4.png)](https://gyazo.com/b04c6addb03589b0d8c9ad7238c272a4)
