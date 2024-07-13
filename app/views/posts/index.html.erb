@@ -91,7 +91,7 @@
               <% end %>
 
               <div class="flex justify-end mx-2">
-                <%= link_to "詳細へ", post_path(post), class: "btn btn-success font-medium" %>
+                <%= link_to "詳細へ", post_path(post), class: "btn btn-success font-medium", data: { turbo: false } %>
               </div>
             </div>
           `;
