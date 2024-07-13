@@ -101,6 +101,11 @@
               <p class="mt-2 text-sm"><%= @post.body.gsub("\n", '<br>').html_safe %></p>
             </div>
           <% end %>
+          <div class="mt-6">
+            <iframe frameborder="0" class="w-full md:h-64 h-48 rounded-xl" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= @post.title %>">
+            </iframe>
+          </div>
+          <div id="map"  data-lat="<%= @post.latitude %>" data-lng="<%= @post.longitude %>" data-name="<%= @post.title %>"></div>
         </div>
         <div class="mt-8 mx-6 flex justify-between items-center">
           <div class="flex items-center">
