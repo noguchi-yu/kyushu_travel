@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'static_pages/top'
   get '/contact', to: 'static_pages#contact'
   get '/privacy_policy', to: 'static_pages#privacy_policy'
+  get '/terms_of_service', to: 'static_pages#terms_of_service'
   root "static_pages#top"
   resources :posts do
     collection do
